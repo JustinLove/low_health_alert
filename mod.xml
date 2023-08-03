@@ -1,0 +1,6 @@
+<Mod
+	name="Low Health Alert"
+	description="Status icon when your health is low"
+	request_no_api_restrictions="0" 
+> 
+</Mod>

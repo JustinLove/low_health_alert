@@ -1,0 +1,13 @@
+<Entity>
+  <InheritTransformComponent />
+
+  <UIIconComponent
+    icon_sprite_file="data/ui_gfx/status_indicators/attacking_player.png"
+    name="$status_curse_wither_melee"
+    description="$statusdesc_curse_wither_melee"
+    display_above_head="1"
+    display_in_hud="0"
+    is_perk="1"
+    >
+  </UIIconComponent>
+</Entity>
