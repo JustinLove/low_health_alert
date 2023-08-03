@@ -22,6 +22,20 @@ mod_settings =
 		allowed_characters = "0123456789",
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
+	{
+		id = "sound_event",
+		ui_name = "Play a sound when falling below alert level",
+		value_default = "none",
+		values = {
+			{"none","none"},
+			{"event_cues/angered_the_gods/create","Angry gods"},
+			{"event_cues/game_over/create","Game over"},
+			{"event_cues/heartbeat/create","Heartbeat"},
+			{"event_cues/chest_bad/create","Chest trap"},
+			{"animals/wizard/death","Mage death"},
+		},
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
 }
 
 
