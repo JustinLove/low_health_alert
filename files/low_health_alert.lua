@@ -32,6 +32,11 @@ end
 
 function lha_status_update( parent, damage )
 	local alert
+	local percent_alert = ModSettingGet("low_health_alert.percent_alert")
+	local absolute_alert = tonumber(ModSettingGet("low_health_alert.absolute_alert")) or 25
+	if absolute_alert then
+		absolute_alert = absolute_alert / 25
+	end
 
 	local damagemodels = EntityGetComponent( parent, "DamageModelComponent" )
 	if( damagemodels ~= nil ) then
@@ -41,7 +46,7 @@ function lha_status_update( parent, damage )
 
 			--print( hp, damage, max_hp )
 			hp = hp - damage
-			alert = hp < max_hp * 0.25 or hp < 1
+			alert = hp < max_hp * percent_alert or hp < absolute_alert
 		end
 	end
 
