@@ -27,12 +27,12 @@ function lha_add_icon(parent)
 		local x,y = EntityGetTransform(parent)
 		icon = EntityLoad( "mods/low_health_alert/files/icon.xml", x, y )
 		EntityAddChild( parent, icon )
-		lha_play_sound(x, y) -- side effect, but it's after an icon present check so poll and damage events agree
+		local event = ModSettingGet("low_health_alert.sound_event")
+		lha_play_sound(event, x, y) -- side effect, but it's after an icon present check so poll and damage events agree
 	end
 end
 
-function lha_play_sound( x, y )
-	local event = ModSettingGet("low_health_alert.sound_event")
+function lha_play_sound( event, x, y )
 	if event == 'none' then return end
 	local bank = 'data/audio/Desktop/event_cues.bank'
 	if event == 'animals/wizard/death' then

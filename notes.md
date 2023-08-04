@@ -1,1 +1,2 @@
 - curse sound: might be player/suffocating, but it's some kind of loop
+- play sound from settings?

@@ -1,4 +1,16 @@
 dofile("data/scripts/lib/mod_settings.lua") -- see this file for documentation on some of the features.
+dofile_once('mods/low_health_alert/files/low_health_alert.lua')
+
+function sound_changed( mod_id, gui, in_main_menu, setting, old_value, new_value  )
+	print( tostring(setting), tostring(new_value) )
+	local x = 0
+	local y = 0
+	local p = EntityGetWithTag( "player_unit" )
+	if #p > 0 then
+		x, y = EntityGetTransform(p[1])
+	end
+	lha_play_sound( new_value, x, y )
+end
 
 local mod_id = "low_health_alert" -- This should match the name of your mod's folder.
 mod_settings_version = 1 -- This is a magic global that can be used to migrate settings to new mod versions. call mod_settings_get_version() before mod_settings_update() to get the old value.
@@ -25,6 +37,7 @@ mod_settings =
 	{
 		id = "sound_event",
 		ui_name = "Play a sound when falling below alert level",
+		ui_description = "Mage death doesn't play in the settings menu.",
 		value_default = "none",
 		values = {
 			{"none","none"},
@@ -35,6 +48,7 @@ mod_settings =
 			{"animals/wizard/death","Mage death"},
 		},
 		scope = MOD_SETTING_SCOPE_RUNTIME,
+		change_fn = sound_changed,
 	},
 }
 
