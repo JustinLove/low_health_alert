@@ -3,8 +3,8 @@
 
   <UIIconComponent
     icon_sprite_file="data/ui_gfx/status_indicators/attacking_player.png"
-    name="$status_curse_wither_melee"
-    description="$statusdesc_curse_wither_melee"
+    name="$lha_status_low_health_alert"
+    description="$lha_statusdesc_low_health_alert"
     display_above_head="1"
     display_in_hud="0"
     is_perk="1"
